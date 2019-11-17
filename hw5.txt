@@ -1,0 +1,8 @@
+Samritha Nagesh
+505104679
+Homework 5
+
+1. It prints : "The value of i is: 7"
+	because the code traverses through the array until it finds the first element that is not equal to 0, and prints the "index" of that element, which is stored in s3.
+
+2.  The worst order is e) jyix because of locality. 

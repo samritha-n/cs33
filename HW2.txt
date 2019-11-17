@@ -1,0 +1,8 @@
+HW 2: Magic 8 Ball
+Samritha Nagesh 
+
+
+Answer: "wrong"
+
+Explanation: 
+We know that based on array allocation, an array declared as D[R][C] uses the following formula: xD + L(C*i+j) to find D[i][j] in memory, where L is the size of the data type in bytes, C is the size of the column, and i and j are the respective positions. In this case (magic8ball[3][4]), L is 1, since a char is 8 bits. C is 8, i is 3, and j is 4. So starting address + 1(8*3+4) is the 28th address down from the starting position, which is address 0x7fffffffe0d8. The characters are 0x57, 0x72, 0x6f, 0x6e, and 0x67 which spell out the string "wrong". 

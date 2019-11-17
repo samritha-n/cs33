@@ -1,0 +1,30 @@
+2.7.1
+	A. The failed attempt is incorrect because it can't accurately handle a negative number - the & 0xFF will always return 0, regardless of the input 	value. 
+ 	B. 
+	 	int xbyte(packed_t word, int bytenum)
+	 	{
+	 		//get requested byte into most significant value
+	 		int s = word << ((3 - bytenum) >> 3);
+
+	 		//extend 8 bit into 32-bit int
+	 		return (s >> 24);
+	 	}
+
+2.8.2
+	A.	(x < y) == (-x > - y) 
+		Does not always evaluate to 1. If y is INT_MIN and x is any random integer, the expression is not true. 
+
+	B. 	((x+y) << 4) + y-x == 17*y+15*x
+		Always evaluates to 1 because ((x+y) << 4) = 16(x+y) and 16x + 16y + y - x == 17y + 15x.
+
+	C.	~x + ~y + 1 == ~(x + y)
+		Always evaluates to 1. Since ~x = -x - 1,
+		~x + ~y = -1 - x -1 - y + 1 = -x -y -1 = -1 - (x+y) == ~(x + y)
+
+	D.	(ux-uy) == -(unsigned)(y-x)
+		Always evaluates to 1. 
+		The negative sign on the right hand side can be distributed to (y-x), so that (ux - uy) == (unsigned)(x - y). The right hand side will always be positive because it is casted to unsigned. The left side will also be positive because the negative result of unsigned subtraction wraps around. Therefore, the two sides are equal. 
+
+	E.	((x >> 2) << 2) <= x
+		Always evaluates to 1.
+		The right shift shifts all the bits by 2 positions and adds the most significant bit to the left (either 0 or 1 depending on the sign of x). The left shift will then shift back to the original position and add two zeroes to the right, which could decrease the value if x were a positive number. Therefore, the value after the shifts could be less than or equal to x.  
